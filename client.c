@@ -59,7 +59,7 @@ int main(int argc, char **argv){
             
             //Esperem la resporta del servidor
             recvfrom(s, buffer2,MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida);
-             comunication = !(strcmp(buffer2, "chao chao\n")==0);
+             comunication = !(strcmp(strrchr(":",buffer2), "chao chao\n")==0);
             if(!comunication){
                 printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
