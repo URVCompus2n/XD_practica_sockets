@@ -27,7 +27,7 @@ int main(int argc, char **argv){
     char buffer[MIDA_BUFFER];
     char buffer2[MIDA_BUFFER];
     socklen_t mida;
-    int i, num1,num2;
+    
     bool comunication = true; //per defecte tenim comunicació
  
     /* Volem socket d'internet i no orientat a la connexio */
