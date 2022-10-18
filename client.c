@@ -46,7 +46,7 @@ int main(int argc, char **argv){
         
         
             //Enviem el paquet
-            sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr));
+            sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
             //Esperem la resporta del servidor
