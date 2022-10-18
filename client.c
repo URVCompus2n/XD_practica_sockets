@@ -26,10 +26,10 @@ int main(int argc, char **argv){
  
     int s;    /* Per treballar amb el socket */
     struct sockaddr_in adr;
-    char text[MIDA_BUFFER];
+    char text[MIDA_BUFFER-10];
     char buffer[MIDA_BUFFER];
     char buffer2[MIDA_BUFFER];
-    char usuari[MIDA_BUFFER];
+    char usuari[10];
     socklen_t mida;
     
     bool comunication = true; //per defecte tenim comunicació
