@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #define MIDA_BUFFER 1024
- 
+
 int main(int argc, char **argv){
  
     if (argc != 2) {
@@ -47,11 +47,11 @@ int main(int argc, char **argv){
         while(comunication){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
-            fgets(buffer, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
+            fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
             
-            strcat(usuari, buffer);
+            sprintf(buffer,"%s: _%s",usuari,text);
             //Enviem el paquet
-            sendto(s, usuari, strlen(usuari)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
+            sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
             //Esperem la resporta del servidor
@@ -60,7 +60,7 @@ int main(int argc, char **argv){
             if(!comunication){
                 printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
-                printf("tú: %s\nx: %s\n",buffer,buffer2); //mostrem el chat per pantalla
+                printf("%s: %s\nx: %s\n",usuari,buffer,buffer2); //mostrem el chat per pantalla
             }
             
 
