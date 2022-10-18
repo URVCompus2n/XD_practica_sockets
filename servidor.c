@@ -30,7 +30,7 @@ int main( ){
     serv_adr.sin_family = AF_INET;
     serv_adr.sin_addr.s_addr = inet_addr("10.112.201.2");
     serv_adr.sin_port =  htons(44444);
-     mida = 0; //guardem la mida
+     //mida = 0; //guardem la mida
     /* Enllacem el socket */
     n = bind(s, (struct sockaddr*)&serv_adr, sizeof(serv_adr));
  
@@ -48,7 +48,7 @@ int main( ){
     
  
             recvfrom(s, buffer, strlen(buffer), 0, (struct sockaddr*)&client_adr, &mida);
-             printf("Per sortir de la conversa escriu \"chao chao\"\n");
+            printf("Per sortir de la conversa escriu \"chao chao\"\n");
             printf("x: %s.\n",buffer); //mostrem el buffer per pantalla
 
             comunication = !(strcmp(buffer, "chao chao\n")==0);
