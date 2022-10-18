@@ -20,8 +20,10 @@ int main( ){
  
     int s;    /* Per treballar amb el socket */
     struct sockaddr_in serv_adr, client_adr;
+    char text[MIDA_BUFFER-11];
     char buffer[MIDA_BUFFER];
     char buffer2[MIDA_BUFFER];
+    char usuari[10];
     socklen_t mida;
     int n;
     bool comunication = true; //per defecte tenim comunicació
@@ -42,7 +44,8 @@ int main( ){
     }
     else
     {
- 
+          printf("Bon dia, indica'm quin és el teu nom d'usuari\n");
+        fgets(usuari, MIDA_BUFFER, stdin); // demanem el nom d'usuari
         /* Servidor operatiu! */
         while(comunication){
                 //fem un bucle mentre hi hagi comunicació
@@ -58,8 +61,8 @@ int main( ){
             if(!comunication){
                 printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\nEscriu \"chao chao\" per despedir-te \n");
             }
-            fgets(buffer2, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
-            
+            fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
+            sprintf(buffer2,"%s: %s",usuari,text);
             if(comunication){
                 //si no s'ha tancat abans, mirem que no sigui el servidor qui la vulgui tancar
                 comunication = !(strcmp(buffer2, "chao chao\n")==0);

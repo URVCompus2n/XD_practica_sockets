@@ -62,7 +62,7 @@ int main(int argc, char **argv){
             if(!comunication){
                 printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
-                printf("%s: %s\nx: %s\n",usuari,buffer,buffer2); //mostrem el chat per pantalla
+                printf("%s: %s\nservidor: %s\n",usuari,buffer,buffer2); //mostrem el chat per pantalla
             }
             
 
