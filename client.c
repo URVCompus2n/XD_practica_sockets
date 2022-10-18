@@ -50,7 +50,7 @@ int main(int argc, char **argv){
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
             fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
             
-            sprintf(buffer,"%s: _%s",usuari,text);
+            sprintf(buffer,"%s: %s",usuari,text);
             //Enviem el paquet
             sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
