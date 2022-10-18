@@ -43,7 +43,7 @@ int main(int argc, char **argv){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
             fgets(buffer, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
-         printf("Longitud %d \n",strlen(buffer)); //demanem un número a l'usuari
+         printf("Longitud %lu \n",strlen(buffer)); //demanem un número a l'usuari
         
             //Enviem el paquet
             sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr));
