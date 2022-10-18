@@ -72,7 +72,7 @@ int main( ){
                 }
                 
             }
- 
+             buffer2[strlen(buffer2)-1]='\0';
             //Important remarcar que a la comunicació hem posat la longitud
             sendto(s, buffer2, strlen(buffer2)+1, 0, (struct sockaddr*)&client_adr, sizeof(client_adr));
  

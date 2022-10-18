@@ -53,6 +53,7 @@ int main(int argc, char **argv){
             
             sprintf(buffer,"%s: %s",usuari,text);
             //Enviem el paquet
+            buffer[strlen(buffer)-1]='\0';
             sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
@@ -62,7 +63,7 @@ int main(int argc, char **argv){
             if(!comunication){
                 printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
-                printf("%s: %s\n%s\n",usuari,buffer,buffer2); //mostrem el chat per pantalla
+                printf("%s\n%s\n",buffer,buffer2); //mostrem el chat per pantalla
             }
             
 
