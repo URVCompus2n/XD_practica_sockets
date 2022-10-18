@@ -11,7 +11,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
- 
+#include <stdbool.h>
 #define MIDA_BUFFER 1024
  
 int main(int argc, char **argv){
@@ -38,16 +38,16 @@ int main(int argc, char **argv){
  
     /* L'adreca de comunicacio sera la IP del servidor, es a dir el parametre */
     adr.sin_addr.s_addr = inet_addr(argv[1]);
- 
-    while(comunication){
-       
-        printf("escriu un missatge: \n"); //demanem un número a l'usuari
+    mida = sizeof(adr); //guardem la mida
+        while(comunication){
+        
+            printf("escriu un missatge: \n"); //demanem un número a l'usuari
             scanf("%s", buffer);
         
         
             //Enviem el paquet
             sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr));
-        
+           
             
             //Esperem la resporta del servidor
             recvfrom(s, buffer2, strlen(buffer2), 0,(struct sockaddr*)&adr, &mida);
