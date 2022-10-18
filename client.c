@@ -42,7 +42,7 @@ int main(int argc, char **argv){
         while(comunication){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
-            scanf("%s", buffer);
+            fgets(buffer, strlen(buffer), stdin); // demanem el missatge a l'usuari
         
         
             //Enviem el paquet
