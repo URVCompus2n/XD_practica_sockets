@@ -47,6 +47,7 @@ int main( ){
           printf("Bon dia, indica'm quin és el teu nom d'usuari\n");
         fgets(usuari, MIDA_BUFFER, stdin); // demanem el nom d'usuari
         /* Servidor operatiu! */
+         usuari[strlen(usuari)-1]='\0';
         while(comunication){
                 //fem un bucle mentre hi hagi comunicació
            
