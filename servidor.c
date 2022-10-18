@@ -55,7 +55,7 @@ int main( ){
 
             comunication = !(strcmp(buffer, "chao chao\n")==0);
             if(!comunication){
-                printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\nEscriu-lo \"chao chao\" \n");
+                printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\nEscriu \"chao chao\" per despedir-te \n");
             }
             fgets(buffer2, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
         
