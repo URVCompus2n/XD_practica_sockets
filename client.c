@@ -28,6 +28,7 @@ int main(int argc, char **argv){
     struct sockaddr_in adr;
     char buffer[MIDA_BUFFER];
     char buffer2[MIDA_BUFFER];
+    char usuari[MIDA_BUFFER];
     socklen_t mida;
     
     bool comunication = true; //per defecte tenim comunicació
@@ -41,11 +42,13 @@ int main(int argc, char **argv){
     /* L'adreca de comunicacio sera la IP del servidor, es a dir el parametre */
     adr.sin_addr.s_addr = inet_addr(argv[1]);
     mida = sizeof(adr); //guardem la mida
+    printf("Bon dia, indica'm quin és el teu nom d'usuari\n");
+    fgets(usuari, MIDA_BUFFER, stdin); // demanem el nom d'usuari
         while(comunication){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
             fgets(buffer, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
-        
+            sprintf(buffer, "%s: %s",usuari,buffer); //posem el nom d'usuari
         
             //Enviem el paquet
             sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
