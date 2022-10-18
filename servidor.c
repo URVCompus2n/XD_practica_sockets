@@ -55,7 +55,7 @@ int main( ){
  
             recvfrom(s, buffer, MIDA_BUFFER, 0, (struct sockaddr*)&client_adr, &mida);
 
-            printf("Per sortir de la conversa escriu \"chao chao\"\n");
+           
            
             printf("%s.\n",buffer); //mostrem el buffer per pantalla
             

@@ -46,6 +46,8 @@ int main(int argc, char **argv){
     printf("Bon dia, indica'm quin és el teu nom d'usuari\n");
     fgets(usuari, MIDA_BUFFER, stdin); // demanem el nom d'usuari
     usuari[strlen(usuari)-1]='\0';
+    printf("Hola %s. Benvingut\nSi vols marxar escriu \"chao chao\"", usuari);
+    
         while(comunication){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
