@@ -1,5 +1,7 @@
 /* Codi solucio de la practica: SERVIDOR */
- 
+/**
+ * Copyright (c) 2022 Marina Dalumau Retuerto, Karim Badias Morales, David Domènech Pereira Da Silva
+*/
 /* Inclusio de fitxers .h habituals */
 #include <stdio.h>
 #include <stdlib.h>
@@ -58,8 +60,8 @@ int main( ){
             fgets(buffer2, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
         
  
-            
-            sendto(s, buffer2, strlen(buffer2), 0, (struct sockaddr*)&client_adr, sizeof(client_adr));
+            //Important remarcar que a la comunicació hem posat la longitud
+            sendto(s, buffer2, strlen(buffer2)+1, 0, (struct sockaddr*)&client_adr, sizeof(client_adr));
  
             
         }

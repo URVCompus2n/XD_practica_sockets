@@ -1,5 +1,7 @@
 /** Codi solucio de la practica: CLIENT **/
- 
+ /**
+ * Copyright (c) 2022 Marina Dalumau Retuerto, Karim Badias Morales, David Domènech Pereira Da Silva
+*/
 /* Inclusio de fitxers .h habituals */
 #include <stdio.h>
 #include <stdlib.h>
