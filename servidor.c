@@ -58,12 +58,12 @@ int main( ){
             printf("Per sortir de la conversa escriu \"chao chao\"\n");
            
 
-            comunication = !(strcmp(strrchr(":",buffer2), "chao chao\n")==0);
+            comunication = !(strcmp(buffer, "chao chao\n")==0);
             if(!comunication){
                 printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\nEscriu \"chao chao\" per despedir-te \n");
             }
             fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
-            
+           
             if(comunication){
                 //si no s'ha tancat abans, mirem que no sigui el servidor qui la vulgui tancar
                 comunication = !(strcmp(buffer2, "chao chao\n")==0);
@@ -72,8 +72,8 @@ int main( ){
                 }
                 
             }
-            sprintf(buffer2,"%s: %s",usuari,text);
-            printf("%s.\n",buffer); //mostrem el buffer per pantalla
+             sprintf(buffer2,"%s: %s",usuari,text);
+             printf("%s.\n",buffer); //mostrem el buffer per pantalla
              buffer2[strlen(buffer2)-1]='\0';
             //Important remarcar que a la comunicació hem posat la longitud
             sendto(s, buffer2, strlen(buffer2)+1, 0, (struct sockaddr*)&client_adr, sizeof(client_adr));

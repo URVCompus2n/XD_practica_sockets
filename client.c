@@ -53,13 +53,13 @@ int main(int argc, char **argv){
             
             sprintf(buffer,"%s: %s",usuari,text);
             //Enviem el paquet
-            buffer[strlen(buffer)-1]='\0';
+            usuari[strlen(buffer)-1]='\0';
             sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
             //Esperem la resporta del servidor
             recvfrom(s, buffer2,MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida);
-             comunication = !(strcmp(strrchr(":",buffer2), "chao chao\n")==0);
+             comunication = !(strcmp(buffer2, "chao chao\n")==0);
             if(!comunication){
                 printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
