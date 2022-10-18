@@ -55,7 +55,7 @@ int main(int argc, char **argv){
             recvfrom(s, buffer2,MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida);
              comunication = !(strcmp(buffer2, "chao chao\n")==0);
             if(!comunication){
-                printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
+                printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
             }else{
                 printf("tú: %s\nx: %s\n",buffer,buffer2); //mostrem el chat per pantalla
             }
