@@ -58,20 +58,10 @@ int main( ){
             printf("Per sortir de la conversa escriu \"chao chao\"\n");
            
             printf("%s.\n",buffer); //mostrem el buffer per pantalla
-            comunication = !(strcmp(buffer, "chao chao\n")==0);
-            if(!comunication){
-                printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\nEscriu \"chao chao\" per despedir-te \n");
-            }
+            
             fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
            
-            if(comunication){
-                //si no s'ha tancat abans, mirem que no sigui el servidor qui la vulgui tancar
-                comunication = !(strcmp(buffer2, "chao chao\n")==0);
-                if(!comunication){
-                    printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\n");
-                }
-                
-            }
+            
              sprintf(buffer2,"%s: %s",usuari,text);
              
              buffer2[strlen(buffer2)-1]='\0';

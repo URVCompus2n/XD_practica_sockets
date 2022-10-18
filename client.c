@@ -50,22 +50,22 @@ int main(int argc, char **argv){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
             fgets(text, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
+             comunication = !(strcmp(text, "chao chao\n")==0);
+            if(!comunication){
+                printf("Has tancat la conexió, que tinguis un bon dia :)\n");
+            }else{
+               
             
             sprintf(buffer,"%s: %s",usuari,text);
             //Enviem el paquet
-            usuari[strlen(buffer)-1]='\0';
+            buffer[strlen(buffer)-1]='\0';
             sendto(s, buffer, strlen(buffer)+1, 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
             //Esperem la resporta del servidor
             recvfrom(s, buffer2,MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida);
-             comunication = !(strcmp(buffer2, "chao chao\n")==0);
-            if(!comunication){
-                printf("el servidor ha marxar\nProcedim a tancar la comunicació, que tinguis un bon dia :)\n \n");
-            }else{
-                printf("%s\n%s\n",buffer,buffer2); //mostrem el chat per pantalla
+             printf("%s\n%s\n",buffer,buffer2); //mostrem el chat per pantalla
             }
-            
 
     }
    
