@@ -43,14 +43,14 @@ int main(int argc, char **argv){
         
             printf("escriu un missatge: \n"); //demanem un número a l'usuari
             fgets(buffer, MIDA_BUFFER, stdin); // demanem el missatge a l'usuari
-         printf("Longitud %lu \n",strlen(buffer)); //demanem un número a l'usuari
+        
         
             //Enviem el paquet
             sendto(s, buffer, strlen(buffer), 0, (struct sockaddr*)&adr, sizeof(adr));
            
             
             //Esperem la resporta del servidor
-            recvfrom(s, buffer2, strlen(buffer2), 0,(struct sockaddr*)&adr, &mida);
+            recvfrom(s, buffer2,MIDA_BUFFER, 0,(struct sockaddr*)&adr, &mida);
              comunication = !(strcmp(buffer2, "chao chao\n")==0);
             if(!comunication){
                 printf("Procedim a tancar la comunicació, que tinguis un bon dia :)\n \n");

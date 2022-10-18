@@ -45,9 +45,9 @@ int main( ){
         while(comunication){
                 //fem un bucle mentre hi hagi comunicació
            
-    
+            
  
-            recvfrom(s, buffer, strlen(buffer), 0, (struct sockaddr*)&client_adr, &mida);
+            recvfrom(s, buffer, MIDA_BUFFER, 0, (struct sockaddr*)&client_adr, &mida);
             printf("Per sortir de la conversa escriu \"chao chao\"\n");
             printf("x: %s.\n",buffer); //mostrem el buffer per pantalla
 
